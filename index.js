@@ -1,3 +1,7 @@
+let player = {
+    name: "Victor",
+    balance: 100
+};
 let allCards = []
 let sum = 0
 let hasBlackjack = false
@@ -6,6 +10,9 @@ let messageEl = document.getElementById("message-el")
 let sumEl = document.getElementById("sum-el") // querySelector("#sum-el") can also be used
 let cardEl = document.getElementById("cards-el")
 let message = ""
+let nameBalanceEl = document.getElementById("name-balance-el")
+
+nameBalanceEl.textContent = player.name + ": $" + player.balance
 
 function startGame () {
     let firstCard = getRandomCard() 
@@ -35,11 +42,12 @@ function renderGame() {
     }
     messageEl.textContent = message; // Does't need to be in side of the the if/else block
     sumEl.textContent = "Sum: " + sum;
-    cardEl.textContent = "Cards: "
+    cardEl.textContent = "Cards: ";
 
     for (let i = 0; i < allCards.length; i++) {
         cardEl.textContent += allCards[i] + " ";
     };
+
 };
 
 function newCard() {
